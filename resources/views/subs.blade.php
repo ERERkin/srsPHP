@@ -7,7 +7,7 @@
     @if (count($subs) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h1>Подписчики</h1>
+                <h1>Подписки</h1>
             </div>
 
             <div class="panel-body">

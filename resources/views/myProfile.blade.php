@@ -2,6 +2,8 @@
 
 @extends('layouts.app')
 
+@extends('layouts.view_profile_css')
+
 @section('content')
 
     <!-- Bootstrap шаблон... -->
@@ -34,7 +36,21 @@
     {{--        </form>--}}
     {{--    </div>--}}
 
-    <div class="row">
+    <div id="wrapper">
+        <div id="header">
+            <span class="circle-image">
+                <img class="ava" src="{{ asset('/storage/' . $me->profile_link) }}">
+            </span>
+                <!-- <button class="b1">Редактировать</button> -->
+            <h1 class="nick">{{ Auth::user()->name }}</h1>
+            <a type="button" class="b1" href="{{ url('/myProfileEdit') }}">Редактировать</a>
+            <p class="descript">{{ $me->profile_description }}</p>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- <div class="row">
         <div class="col-md-2 col-xs-6">
             <img class="img-fluid" src="{{ asset('/storage/' . $me->profile_link) }}">
         </div>
@@ -44,7 +60,7 @@
             <label for="task" class="col-sm-3 control-label"> Описание </label>
             <h2>{{ $me->profile_description }}</h2>
         </div>
-    </div>
+    </div> -->
 
 {{--    <div class="panel-body">--}}
 {{--        <!-- Отображение ошибок проверки ввода -->--}}
@@ -85,30 +101,33 @@
     <!-- TODO: Текущие задачи -->
     <!-- Текущие задачи -->
     @if (count($posts) > 0)
-        <div class="panel panel-default">
+        <!--<div class="panel panel-default">-->
+        <div id="panelofposts">
+            <br>
             <div class="panel-heading">
-                Мои посты
+                <h2>Мои посты</h2>
             </div>
 
-            <div class="panel-body">
-                <table class="table table-striped task-table">
+            <!-- <div class="panel-body"> -->
+            <div class="posts">
+                <table class="userposts">
 
                     <!-- Заголовок таблицы -->
                     <thead>
-                    <th>Тема</th>
-                    <th>Текст</th>
+                    <th class="th1">Тема</th>
+                    <th class="th1">Текст</th>
                     </thead>
 
                     <!-- Тело таблицы -->
                     <tbody>
                     @foreach ($posts as $post)
-                        <tr>
+                        <tr class="tr1">
                             <!-- Имя задачи -->
-                            <td class="table-text">
+                            <td class="td1">
                                 <div>{{ $post->post_name }}</div>
                             </td>
 
-                            <td class="table-text">
+                            <td class="td1">
                                 <div>{{ $post->post_text }}</div>
                             </td>
 

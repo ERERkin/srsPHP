@@ -168,7 +168,8 @@ Route::get('/subProfile/{user}', function (User $user) {
         ->get();
 
     $me = Profile::orderBy('created_at', 'asc')->where('profile_user_id', $user->id)->first();
-    return view('subProfile', ['posts' => $posts, 'user' => $me]);
+    $name = $user->name;
+    return view('subProfile', ['posts' => $posts, 'user' => $me, 'name' => $name]);
 });
 
 //удаление поста

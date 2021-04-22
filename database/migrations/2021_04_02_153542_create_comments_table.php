@@ -17,8 +17,7 @@ class CreateCommentsTable extends Migration
             $table->bigIncrements('comment_id');
             $table->integer('comment_user_id')->index();
             $table->string('comment_text', 255);
-            $table->integer('comment_com_list_id')->index();
-            $table->integer('comment_in_com_list_id')->index();
+            $table->integer('comment_post_id')->index();
             $table->timestamps();
         });
     }

@@ -34,7 +34,7 @@
                             {{--                            <td class="table-text">--}}
                             {{--                                <div>{{ $sub->name }}</div>--}}
                             {{--                            </td>--}}
-                    
+
                     <!-- <thead>
                     <th class="th1">ава</th>
                     <th class="th1">ник</th>
@@ -42,7 +42,7 @@
 
                     <!-- Тело таблицы -->
                     <!-- <tbody> -->
-                        
+
                         <tr class="tr1">
                             <!-- Имя задачи -->
                             <td class="td1">
@@ -58,25 +58,27 @@
                             </td>
 
                             <td class="td1">
-                                <a class="bsub1" href="{{ url('subProfile/' . $sub->id) }}}">⠀Просмотр⠀</a>
+                                <a class="bsub1" href="{{ url('subProfile/' . $sub->id) }}">⠀Просмотр⠀</a>
                                 <!-- <button class="bsub1">Просмотр</button> -->
                             </td>
 
                             <td class="td1">
-                                <a class="bunsub1" href="{{ url('subProfile/' . $sub->id) }}}">⠀Отписаться⠀</a>
+                                <a class="bunsub1" href="{{ url('subProfile/' . $sub->id) }}">⠀Отписаться⠀</a>
+
                                 <!-- <button class="bunsub1">Отписаться</button> -->
                             </td>
 
-                            <!-- <a href="{{ url('subProfile/' . $sub->id) }}}">
-                                <div class="row">
-                                    <img class="img-fluid" src="{{ asset('/storage/' . $sub->profile_link) }}">
-                                </div>
-                                <div class="col-md-9 col-xs-6">
-                                        <h2>{{ $sub->name }}</h2>
-                                        <h2>{{ $sub->id }}</h2>
-                                </div>
-                                </div>
-                            </a> -->
+                            <td>
+                                <form action="{{ url('sub/'.$sub->sub_id) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="fa fa-trash"></i> Отписаться
+                                    </button>
+                                </form>
+                            </td>
+
                         </tr>
                     @endforeach
                     </tbody>

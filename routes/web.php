@@ -15,6 +15,7 @@
 //     return view('welcome');
 // });
 use App\ComList;
+use App\Comment;
 use App\Post;
 use App\Profile;
 use App\Sub;
@@ -96,8 +97,13 @@ Route::post('/post', function (Request $request) {
     $post->post_name = $request->name;
     $post->post_text = $request->text;
     $post->post_user_id = Auth::user()->id;
-    $post->post_com_list_id = $comList->com_lists_id;
     $post->save();
+
+    $profile = Profile::where('profile_user_id', '=', Auth::user()->id)->firstOrFail();
+
+    $profile->profile_post_count = $profile->profile_post_count + 1;
+
+    $profile->save();
 
     return redirect('/my');
 });
@@ -177,6 +183,11 @@ Route::get('/subProfile/{user}', function (User $user) {
     return view('subProfile', ['posts' => $posts, 'user' => $me, 'name' => $name]);
 });
 
+Route::delete('/sub/{sub}', function (Sub $sub) {
+    $sub->delete();
+    return redirect('/subs');
+});
+
 //удаление поста
 Route::delete('/postDel/{post}', function (Post $post) {
     $post->delete();
@@ -189,7 +200,6 @@ Route::get('/postEdit/{post}', function (Post $post) {
 
     return view('postEdit', ['post' => $post]);
 });
-
 Route::post('/postEdit/{post}', function (Post $post, Request $request) {
 
 //    $post->update([
@@ -205,6 +215,39 @@ Route::post('/postEdit/{post}', function (Post $post, Request $request) {
     ]);
 
     return redirect('/my');
+});
+
+
+Route::get('/postView/{post}', function (Post $post) {
+
+    $comments = Comment::select('*')
+        ->Join('users', 'comments.comment_user_id', '=', 'users.id')
+        ->Join('profile', 'profile.profile_user_id', '=', 'users.id')
+        ->where('comments.comment_post_id', $post->post_id)
+        ->get();
+
+    return view('postView', ['post' => $post, 'comments'=>$comments]);
+});
+
+Route::post('/comment/{post}', function (Post $post, Request $request) {
+
+    $comment = new Comment();
+    $comment->comment_user_id = Auth::user()->id;
+    $comment->comment_text = $request->text;
+    $comment->comment_post_id = $post->post_id;
+    $comment->save();
+
+
+    return redirect('/postView/' . $comment->comment_post_id);
+});
+
+Route::delete('/comment/{comment}', function (Comment $comment) {
+    if ($comment->comment_user_id == Auth::user()->id){
+        $comment->delete();
+    }
+
+
+    return redirect('/postView/' . $comment->comment_post_id);
 });
 
 

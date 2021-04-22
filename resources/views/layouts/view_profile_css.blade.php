@@ -1,14 +1,14 @@
 <style>
 
 #wrapper{
-    width: 1000px;
+    width: 1200px;
     outline: 1px solid #F9F8F4;
     
     margin: 0 auto;
 }
 #header{
     position:relative;
-    width: 1000px;
+    width: 1200px;
     height: 250px;
     background-color: #F9F8F4;
     margin-bottom: 0px;
@@ -81,7 +81,7 @@
 
 #panelofposts{
 	position:relative;
-    width: 1000px;
+    width: 1200px;
     background-color: #F9F8F4;
     margin-bottom: 0px;
     margin: 0 auto;
@@ -111,6 +111,7 @@
 }
 
 .userposts{
+	width: 1200px;
 	border-collapse: collapse;
 }
 

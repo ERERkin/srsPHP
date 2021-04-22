@@ -106,7 +106,9 @@ Route::post('/post', function (Request $request) {
 Route::get('/search', function () {
     $user = new User;
     $user->id = 0;
-    return view('search', ['user' => $user]);
+    $profile = new Profile;
+    $profile->profile_id = 0;
+    return view('search', ['user' => $user, 'profile'=>$profile]);
 });
 
 //ввод пользователя для поиска
@@ -115,12 +117,15 @@ Route::post('/search', function (Request $request) {
 
     foreach ($users as $user) {
         if ($user->name == $request->name) {
-            return view('search', ['user' => $user]);
+            $profile = Profile::where('profile_user_id', '=', $user->id)->firstOrFail();
+            return view('search', ['user' => $user, 'profile'=>$profile]);
         }
     }
     $user = new User;
     $user->id = 0;
-    return view('/search', ['user' => $user]);
+    $profile = new Profile;
+    $profile->profile_id = 0;
+    return view('/search', ['user' => $user, 'profile'=>$profile]);
 });
 
 //подписка

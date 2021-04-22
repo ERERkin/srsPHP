@@ -2,16 +2,18 @@
 
 @extends('layouts.app')
 
+@extends('layouts.list_of_subscriptions_css')
+
 @section('content')
 
     @if (count($subs) > 0)
-        <div class="panel panel-default">
+        <div id="panelofsubs">
             <div class="panel-heading">
                 <h1>Подписки</h1>
             </div>
 
-            <div class="panel-body">
-                <table class="table table-striped task-table">
+            <div class="subs">
+                <table class="users">
 
                     <!-- Заголовок таблицы -->
                 {{--                    <thead>--}}
@@ -19,29 +21,62 @@
                 {{--                    <th>&nbsp;</th>--}}
                 {{--                    </thead>--}}
 
+                <thead>
+                    <th class="th1">ава</th>
+                    <th class="th1">ник</th>
+                </thead>
+
                 <!-- Тело таблицы -->
                     <tbody>
                     @foreach ($subs as $sub)
-                        <tr>
+                        <!-- <tr> -->
                             <!-- Имя задачи -->
                             {{--                            <td class="table-text">--}}
                             {{--                                <div>{{ $sub->name }}</div>--}}
                             {{--                            </td>--}}
-                            <h2>{{ $sub->name }}</h2>
-                            <h2>{{ $sub->id }}</h2>
-                            <a href="{{ url('subProfile/' . $sub->id) }}}">
+                    
+                    <!-- <thead>
+                    <th class="th1">ава</th>
+                    <th class="th1">ник</th>
+                    </thead> -->
+
+                    <!-- Тело таблицы -->
+                    <!-- <tbody> -->
+                        
+                        <tr class="tr1">
+                            <!-- Имя задачи -->
+                            <td class="td1">
+                                <img class="ava" src="{{ asset('/storage/' . $sub->profile_link) }}">
+                            </td>
+
+                            <td class="td1">
+                                <div>{{ $sub->name }}</div>
+                            </td>
+
+                            <td class="td1">
+                                <div class="br1"></div>
+                            </td>
+
+                            <td class="td1">
+                                <a class="bsub1" href="{{ url('subProfile/' . $sub->id) }}}">⠀Просмотр⠀</a>
+                                <!-- <button class="bsub1">Просмотр</button> -->
+                            </td>
+
+                            <td class="td1">
+                                <a class="bunsub1" href="{{ url('subProfile/' . $sub->id) }}}">⠀Отписаться⠀</a>
+                                <!-- <button class="bunsub1">Отписаться</button> -->
+                            </td>
+
+                            <!-- <a href="{{ url('subProfile/' . $sub->id) }}}">
                                 <div class="row">
-                                    <div class="col-md-1 col-xs-1">
-                                    </div>
-                                    <div class="col-md-1 col-xs-5">
-                                        <img class="img-fluid" src="{{ asset('/storage/' . $sub->profile_link) }}">
-                                    </div>
-                                    <div class="col-md-9 col-xs-6">
+                                    <img class="img-fluid" src="{{ asset('/storage/' . $sub->profile_link) }}">
+                                </div>
+                                <div class="col-md-9 col-xs-6">
                                         <h2>{{ $sub->name }}</h2>
                                         <h2>{{ $sub->id }}</h2>
-                                    </div>
                                 </div>
-                            </a>
+                                </div>
+                            </a> -->
                         </tr>
                     @endforeach
                     </tbody>

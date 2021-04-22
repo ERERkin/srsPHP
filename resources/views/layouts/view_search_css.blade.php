@@ -1,6 +1,6 @@
 <style>
 	
-#panelofsubs{
+#panelofusers{
 	position:relative;
     width: 1200px;
     background-color: #F9F8F4;
@@ -8,9 +8,11 @@
     margin: 0 auto;
 }
 
-.subs{
+.users1{
+	width: 1200px;
 	background-color: #F9F8F4;
 	margin-left: 0 auto;
+	margin: 0 auto;
 }
 
 .tr1{
@@ -31,7 +33,7 @@
 	padding: 15px 35px;
 }
 
-.users{
+.users2{
 	width: 1200px;
 	border-collapse: collapse;
 }
@@ -42,14 +44,26 @@
 	border-radius: 50%;
 }
 
-.bsub1{
+.bview1{
 	background-color: #8a0dff;
 	color: #FFFFFF;
 	border-radius: 10px;
 	border: rgb(61,64,69) 1px solid;
 }
-.bsub1:hover{
+.bview1:hover{
 	background-color: #5b00b0;
+	color: #FFF;
+	text-decoration: none;
+}
+
+.bsub1{
+	background-color: #81bb53;
+	color: #FFFFFF;
+	border-radius: 10px;
+	border: rgb(61,64,69) 1px solid;
+}
+.bsub1:hover{
+	background-color: #3a8100;
 	color: #FFF;
 	text-decoration: none;
 }

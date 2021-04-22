@@ -2,6 +2,8 @@
 
 @extends('layouts.app')
 
+@extends('layouts.view_search_css')
+
 @section('content')
 
     <!-- Bootstrap шаблон... -->
@@ -48,18 +50,53 @@
                     </div>
                 </div>
 
+
+                <div class="users1">
+                <table class="users2">
+
+                    <tr class="tr1">
+                            <!-- Имя задачи -->
+                            <td class="td1">
+                                <img class="ava" src="{{ asset('/storage/' . $profile->profile_link) }}">
+                            </td>
+
+                            <td class="td1">
+                                <div>{{ $user->name }}</div>
+                            </td>
+
+                            <td class="td1">
+                                <div class="br1"></div>
+                            </td>
+
+                            <td class="td1">
+                                <a class="bview1" href="{{ url('userProfile/' . $user->id) }}}">⠀Просмотр⠀</a>
+                                <!-- <button class="bview1">Просмотр</button> -->
+                            </td>
+
+                            <td class="td1">
+                                <!-- <a class="bsub1" href="{{ url('userProfile/' . $user->id) }}}">⠀Подписаться⠀</a> -->
+                                <button type="submit" class="bsub1">Подписаться</button>
+                            </td>
+
+                            <td class="td1">
+                                <a class="bunsub1" href="{{ url('userProfile/' . $user->id) }}}">⠀Отписаться⠀</a>
+                                <!-- <button class="bunsub1">Отписаться</button> -->
+                            </td>
+
+                <!-- <img class="ava" src="{{ asset('/storage/' . $profile->profile_link) }}">
+
                 <div class="form-group">
                     <label for="task" class="col-sm-3 control-label">{{ $user->name }}</label>
-                </div>
+                </div> -->
 
                 <!-- Кнопка добавления задачи -->
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-6">
                         <button type="submit" class="btn btn-default">
                             <i class="fa fa-plus"></i> Подписаться
                         </button>
                     </div>
-                </div>
+                </div> -->
             </form>
         </div>
     @endif

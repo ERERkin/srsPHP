@@ -2,14 +2,31 @@
 
 @extends('layouts.app')
 
-@extends('layouts.view_profile_css')
+@extends('layouts.post_view_css')
 
 @section('content')
 
 
-    <div><h1>{{ $post->post_name }}</h1></div>
+<body id="body1">
 
-    <div><h2>{{ $post->post_text }}</h2></div>
+<div id="wrapper">
+    <div>
+        <br>
+        <h1>{{ $post->post_name }}</h1>
+        <br>
+    </div>
+
+    <div>
+        <br>
+        <h2>{{ $post->post_text }}</h2>
+        <br>
+    </div>
+<!-- </div> -->
+
+    <br>
+    <br>
+    <h1>Комментарии</h1>
+    <br>
 
     <!-- TODO: Текущие задачи -->
     <!-- Текущие задачи -->
@@ -50,4 +67,8 @@
             </div>
         </div>
     </form>
+</div>
+
+</body>
+
 @endsection

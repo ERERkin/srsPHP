@@ -1,5 +1,13 @@
 <style>
 
+#body1{
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #F9F8F4;
+}
+
 #wrapper{
     width: 1200px;
     outline: 1px solid #F9F8F4;
@@ -103,6 +111,7 @@
 }
 
 .th1{
+	border-top: 1px solid #8C8C8C;
 	padding: 10px 35px; 
 }
 

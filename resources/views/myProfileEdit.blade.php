@@ -2,6 +2,8 @@
 
 @extends('layouts.app')
 
+@extends('layouts.profileEdit_css')
+
 @section('content')
 
     <!-- Bootstrap шаблон... -->
@@ -11,12 +13,17 @@
     @include('common.errors')
     <!-- Форма новой задачи -->
 
+<body id="body1">
+
+    <div class="form_edit_profile">
         <form action="{{ route('image.upload') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
             {{ csrf_field() }}
+            <label for="task" class="col-sm-3 control-label">Выберите фото</label>
             <div>
                 <input type="file" name="photo">
             </div>
 
+<br>
 
             <div class="form-group">
                 <label for="task" class="col-sm-3 control-label">Введите описание</label>
@@ -68,19 +75,21 @@
             </div>
         </div>
 
+<br>
 
         @isset($me)
-            <div class="row">
-
-                <div class="col-md-2 col-xs-6">
-                    <img class="img-fluid" src="{{ asset('/storage/' . $me->profile_link) }}">
-                </div>
-                <div class="col-md-9 col-xs-6">
-                    <label for="task" class="col-sm-3 control-label"> Имя </label>
-                    <h1>{{ Auth::user()->name }}</h1>
-                    <label for="task" class="col-sm-3 control-label"> Описание </label>
-                    <h2>{{ $me->profile_description }}</h2>
-                </div>
+            <div class="header">
+                <!-- <div class="col-md-2 col-xs-6"> -->
+                <span class="circle-image">
+                    <img class="ava" src="{{ asset('/storage/' . $me->profile_link) }}">
+                </span>
+                <!-- </div> -->
+                <!-- <div class="col-md-9 col-xs-6"> -->
+                    <!-- <label for="task" class="col-sm-3 control-label"> Имя </label> -->
+                    <h1 class="nick">{{ Auth::user()->name }}</h1>
+                    <!-- <label for="task" class="col-sm-3 control-label"> Описание </label> -->
+                    <p class="descript">{{ $me->profile_description }}</p>
+                <!-- </div> -->
             </div>
         @endisset
 
@@ -99,4 +108,9 @@
     {{--            </div>--}}
     {{--        </div>--}}
     {{--    @endif--}}
+
+    </div>
+    
+</body>
+
 @endsection

@@ -191,6 +191,12 @@ Route::delete('/sub/{sub}', function (Sub $sub) {
 //удаление поста
 Route::delete('/postDel/{post}', function (Post $post) {
     $post->delete();
+    
+    $profile = Profile::where('profile_user_id', '=', Auth::user()->id)->firstOrFail();
+
+    $profile->profile_post_count = $profile->profile_post_count - 1;
+
+    $profile->save();
 
     return redirect('/my');
 });

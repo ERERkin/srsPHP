@@ -2,6 +2,8 @@
 
 @extends('layouts.app')
 
+@extends('layouts.postEdit_css')
+
 @section('content')
 
     <!-- Bootstrap шаблон... -->
@@ -10,8 +12,10 @@
         <!-- Отображение ошибок проверки ввода -->
     @include('common.errors')
 
+<body id="body1">
+
     <!-- Форма новой задачи -->
-        <form action="{{ url('postEdit/'.$post->post_id) }}" method="POST" class="form-horizontal">
+        <form action="{{ url('postEdit/'.$post->post_id) }}" method="POST" class="form_edit_post">
         {{ csrf_field() }}
 
         <!-- Имя задачи -->
@@ -28,7 +32,8 @@
                 <label for="task" class="col-sm-3 control-label">Текст</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="text" id="task-name" class="form-control" value="{{ $post->post_text }}">
+                    <!-- <input type="text" name="text" id="task-name" class="form-control" value="{{ $post->post_text }}"> -->
+                    <textarea type="text" name="text" class="txtbox1" value="{{ $post->post_text }}">{{ $post->post_text }}</textarea>
                 </div>
             </div>
 
@@ -42,5 +47,7 @@
             </div>
         </form>
     </div>
+
+</body>
 
 @endsection

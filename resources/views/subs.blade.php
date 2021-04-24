@@ -6,6 +6,8 @@
 
 @section('content')
 
+<body id="body1">
+
     @if (count($subs) > 0)
         <div id="panelofsubs">
             <div class="panel-heading">
@@ -86,4 +88,7 @@
             </div>
         </div>
     @endif
+
+</body>
+
 @endsection

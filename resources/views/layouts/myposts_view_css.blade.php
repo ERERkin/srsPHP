@@ -1,5 +1,5 @@
 <style>
-
+	
 #body1{
 	top: 0;
 	left: 0;
@@ -7,8 +7,8 @@
 	height: 100%;
 	background-color: #F9F8F4;
 }
-	
-#panelofusers{
+
+#panelofposts{
 	position:relative;
     width: 1200px;
     background-color: #F9F8F4;
@@ -24,6 +24,16 @@
     margin: 0 auto;
 }
 
+.posts{
+	background-color: #F9F8F4;
+	margin-left: 0 auto;
+}
+
+.userposts{
+	width: 1200px;
+	border-collapse: collapse;
+}
+
 .users1{
 	width: 1200px;
 	background-color: #F9F8F4;
@@ -34,7 +44,6 @@
 .tr1{
 	border-top: 1px solid #8C8C8C;
 	transition: .5s;
-	border-bottom: 1px solid #8C8C8C;
 }
 
 .tr1:hover{
@@ -43,6 +52,7 @@
 }
 
 .th1{
+	border-top: 1px solid #8C8C8C;
 	padding: 10px 35px;
 }
 

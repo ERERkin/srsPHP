@@ -7,6 +7,8 @@
 @section('content')
 
 
+<body id="body1">
+    
     <div id="wrapper">
         <div id="header">
             <span class="circle-image">
@@ -40,6 +42,7 @@
                     <thead>
                     <th class="th1">Тема</th>
                     <th class="th1">Текст</th>
+                    <th class="th1"></th>
                     </thead>
 
                     <!-- Тело таблицы -->
@@ -62,4 +65,5 @@
             </div>
         </div>
     @endif
+</body>
 @endsection

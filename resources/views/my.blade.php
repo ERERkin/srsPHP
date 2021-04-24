@@ -2,6 +2,8 @@
 
 @extends('layouts.app')
 
+@extends('layouts.myposts_view_css')
+
 @section('content')
 
     <!-- Bootstrap шаблон... -->
@@ -10,8 +12,10 @@
         <!-- Отображение ошибок проверки ввода -->
     @include('common.errors')
 
+<body id="body1">
+
     <!-- Форма новой задачи -->
-        <form action="{{ url('post') }}" method="POST" class="form-horizontal">
+        <form action="{{ url('post') }}" method="POST" class="form_add_post">
         {{ csrf_field() }}
 
         <!-- Имя задачи -->
@@ -45,41 +49,43 @@
     <!-- TODO: Текущие задачи -->
     <!-- Текущие задачи -->
     @if (count($posts) > 0)
-        <div class="panel panel-default">
+        <!-- <div class="panel panel-default"> -->
+        <div id="panelofposts">
             <div class="panel-heading">
-                Мои посты
+                <h2>Мои посты</h2>
             </div>
 
-            <div class="panel-body">
-                <table class="table table-striped task-table">
+            <div class="posts">
+                <table class="userposts">
 
                     <!-- Заголовок таблицы -->
                     <thead>
-                    <th>Тема</th>
-                    <th>Текст</th>
+                    <th class="th1">Тема</th>
+                    <th class="th1">Текст</th>
+                    <th class="th1"></th>
+                    <th class="th1"></th>
                     </thead>
 
                     <!-- Тело таблицы -->
                     <tbody>
                     @foreach ($posts as $post)
-                        <tr>
+                        <tr class="tr1">
                             <!-- Имя задачи -->
-                            <td class="table-text">
+                            <td class="td1">
                                 <div>{{ $post->post_name }}</div>
                             </td>
 
-                            <td class="table-text">
+                            <td class="td1">
                                 <div>{{ $post->post_text }}</div>
                             </td>
 
                             <!-- Кнопка Удалить -->
 
-                            <td>
-
+                            <td class="td1">
                                 <a href="{{ url('postEdit/' . $post->post_id) }}" class="btn btn-primary btn-lg"> Изменить </a>
                             </td>
 
-                            <td>
+                            <td class="td1">
                                 <form action="{{ url('postDel/'.$post->post_id) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
@@ -96,4 +102,7 @@
             </div>
         </div>
     @endif
+
+</body>
+
 @endsection

@@ -11,8 +11,11 @@
     <div class="panel-body">
         <!-- Отображение ошибок проверки ввода -->
     @include('common.errors')
+
+    <body id="body1">
+
     <!-- Форма новой задачи -->
-        <form action="{{ url('search') }}" method="POST" class="form-horizontal">
+        <form action="{{ url('search') }}" method="POST" class="form_add_post">
         {{ csrf_field() }}
 
         <!-- Имя задачи -->
@@ -44,12 +47,12 @@
             {{ csrf_field() }}
 
             <!-- Имя задачи -->
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <div class="col-sm-6">
                         <input type="text" name="id" id="task-name" class="form-control" value="{{ $user->id }}"
                                readonly>
                     </div>
-                </div>
+                </div> -->
 
 
                 <div class="users1">
@@ -70,7 +73,12 @@
                             </td>
 
                             <td class="td1">
-                                <a class="bview1" href="{{ url('userProfile/' . $user->id) }}}">⠀Просмотр⠀</a>
+                                <input type="text" name="id" id="task-name" class="form-control" value="{{ $user->id }}"
+                               readonly>
+                           </td>
+
+                            <td class="td1">
+                                <a class="bview1" href="{{ url('subProfile/' . $user->id) }}">⠀Просмотр⠀</a>
                                 <!-- <button class="bview1">Просмотр</button> -->
                             </td>
 
@@ -80,9 +88,13 @@
                             </td>
 
                             <td class="td1">
-                                <a class="bunsub1" href="{{ url('userProfile/' . $user->id) }}}">⠀Отписаться⠀</a>
+                                <a class="bunsub1" href="{{ url('userProfile/' . $user->id) }}">⠀Отписаться⠀</a>
                                 <!-- <button class="bunsub1">Отписаться</button> -->
                             </td>
+
+                        </tr>
+
+                    </table>
 
                         <!-- <img class="ava" src="{{ asset('/storage/' . $profile->profile_link) }}">
 
@@ -101,4 +113,7 @@
             </form>
         </div>
     @endif
+
+</body>
+
 @endsection

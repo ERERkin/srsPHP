@@ -1,5 +1,13 @@
 <style>
 	
+#body1{
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #F9F8F4;
+}
+
 #panelofsubs{
 	position:relative;
     width: 1200px;

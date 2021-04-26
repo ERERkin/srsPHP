@@ -191,7 +191,7 @@ Route::delete('/sub/{sub}', function (Sub $sub) {
 //удаление поста
 Route::delete('/postDel/{post}', function (Post $post) {
     $post->delete();
-    
+
     $profile = Profile::where('profile_user_id', '=', Auth::user()->id)->firstOrFail();
 
     $profile->profile_post_count = $profile->profile_post_count - 1;
@@ -254,6 +254,41 @@ Route::delete('/comment/{comment}', function (Comment $comment) {
 
 
     return redirect('/postView/' . $comment->comment_post_id);
+});
+
+//
+Route::get('/list', function () {
+    $posts = array();
+    $posts1 = Post::orderBy('created_at', 'asc')
+        ->where('posts.post_user_id', Auth::user()->id)
+        ->get();
+
+    foreach ($posts1 as $post1){
+        array_push($posts, $post1);
+    }
+
+    $subs = User::select('*')
+        ->Join('subscribers', 'subscribers.sub_subscriber_id', '=', 'users.id')
+        ->Join('profile', 'profile.profile_user_id', '=', 'users.id')
+        ->where('subscribers.sub_author_id', Auth::user()->id)
+        ->get();
+
+    foreach ($subs as $sub) {
+        $posts2 = Post::orderBy('created_at', 'asc')
+            ->where('posts.post_user_id', $sub->sub_subscriber_id)
+            ->get();
+
+        foreach ($posts2 as $post2){
+            array_push($posts, $post2);
+        }
+
+    }
+
+    $posts = collect($posts)->sortByDesc('created_at');
+
+
+    $me = Profile::orderBy('created_at', 'asc')->where('profile_user_id', Auth::user()->id)->first();
+    return view('lenta', ['posts' => $posts, 'me' => $me]);
 });
 
 

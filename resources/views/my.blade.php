@@ -82,7 +82,8 @@
                             <!-- Кнопка Удалить -->
 
                             <td class="td1">
-                                <a href="{{ url('postEdit/' . $post->post_id) }}" class="btn btn-primary btn-lg"> Изменить </a>
+                                <a href="{{ url('postEdit/' . $post->post_id) }}" class="btn btn-primary btn-lg">
+                                    Изменить </a>
                             </td>
 
                             <td class="td1">

@@ -5,6 +5,7 @@
 
     <div class="list-group">
         <a href="{{ url('subs') }}" class="list-group-item list-group-item-action text-center">Подписки</a>
+        <a href="{{ url('list') }}" class="list-group-item list-group-item-action text-center">Лента</a>
 {{--        <a href="{{ url('faculty') }}" class="list-group-item list-group-item-action active">Факультет</a>--}}
         <a href="{{ url('myProfile') }}" class="list-group-item list-group-item-action text-center">Мой профиль</a>
         <a href="{{ url('my') }}" class="list-group-item list-group-item-action text-center">Мои посты</a>

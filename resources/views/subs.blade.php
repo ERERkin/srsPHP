@@ -60,17 +60,25 @@
                             </td>
 
                             <td class="td1">
-                                <a class="bsub1" href="{{ url('subProfile/' . $sub->id) }}">⠀Просмотр⠀</a>
+                                <a type="button" class="bsub1" href="{{ url('subProfile/' . $sub->id) }}">⠀Просмотр⠀</a>
                                 <!-- <button class="bsub1">Просмотр</button> -->
                             </td>
 
                             <td class="td1">
-                                <a class="bunsub1" href="{{ url('subProfile/' . $sub->id) }}">⠀Отписаться⠀</a>
+                                <form class="form1" action="{{ url('sub/'.$sub->sub_id) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button type="submit" class="bunsub1">Отписаться</button>
+                                    <!-- <button type="submit" class="btn btn-danger">
+                                        <i class="fa fa-trash"></i> Отписаться
+                                    </button> -->
+                                </form>
+                                <!-- <a class="bunsub1" href="{{ url('subProfile/' . $sub->id) }}">⠀Отписаться⠀</a> -->
 
                                 <!-- <button class="bunsub1">Отписаться</button> -->
                             </td>
 
-                            <td>
+                            <!-- <td>
                                 <form action="{{ url('sub/'.$sub->sub_id) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
@@ -79,7 +87,7 @@
                                         <i class="fa fa-trash"></i> Отписаться
                                     </button>
                                 </form>
-                            </td>
+                            </td> -->
 
                         </tr>
                     @endforeach

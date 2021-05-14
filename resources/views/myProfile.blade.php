@@ -23,6 +23,16 @@
 
     <br>
 
+    <nav class="nav1">
+        <ul class="ul1">
+            <li class="li1"><a class="a1" href="{{ url('list') }}">Лента</a></li>
+            <li class="li1"><a class="a1" href="{{ url('search') }}">Поиск</a></li>
+            <li class="li1"><a class="a1" href="{{ url('subs') }}">Подписки</a></li>
+        </ul>
+    </nav>
+
+    <br>
+
 
     <!-- TODO: Текущие задачи -->
     <!-- Текущие задачи -->
@@ -32,6 +42,10 @@
             <br>
             <div class="panel-heading">
                 <h2>Мои посты</h2>
+            </div>
+
+            <div class="newp">
+                <a class="a1" href="{{ url('my') }}">Новый пост</a>
             </div>
 
             <!-- <div class="panel-body"> -->
@@ -55,7 +69,7 @@
                             </td>
 
                             <td class="td1">
-                                <div>{{ $post->post_text }}</div>
+                                <div class="tdtext1">{{ $post->post_text }}</div>
                             </td>
                             <td><a href="{{ url('postView/' . $post->post_id) }}">Читать дальше</a></td>
                         </tr>

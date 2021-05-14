@@ -16,11 +16,66 @@
 }
 
 .com1{
-	white-space: nowrap; /* Запрещаем перенос строк */
-    overflow: hidden; /* Обрезаем все, что не помещается в область */
-    background: #fc0; /* Цвет фона */
-    padding: 5px; /* Поля вокруг текста */
+    background-color: #FFFFFF;
+    position: relative;
+    height: 200px;
+    padding: 5px 5px 5px 5px;
     text-overflow: ellipsis;
+    border-color: #000000;
+    border-radius: 10px;
+    border: rgb(61,64,69) 1px solid;
+}
+
+.b1{
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    margin-top: 75px;
+    color: #FFFFFF;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #C51200;
+    border: rgb(61,64,69) 1px solid;
+}
+.b1:hover{
+    text-decoration: none;
+    background-color: #830c00;
+    border: rgb(0,0,0) 1px solid;
+    cursor: pointer;
+}
+
+.ava{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.nick{
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 30px;
+    display: inline-block;
+}
+
+.comtext{
+    width: 1000px;
+    height: 200px;
+    position: absolute;
+    margin-left: 120px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.comdate{
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+    font-size: 12px;
+    display: inline-block;
 }
 
 

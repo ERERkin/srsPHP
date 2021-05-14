@@ -76,7 +76,7 @@
                             </td>
 
                             <td class="td1">
-                                <div>{{ $post->post_text }}</div>
+                                <div class="tdtext1">{{ $post->post_text }}</div>
                             </td>
 
                             <!-- Кнопка Удалить -->
@@ -87,7 +87,7 @@
                             </td>
 
                             <td class="td1">
-                                <form action="{{ url('postDel/'.$post->post_id) }}" method="POST">
+                                <form class="form1" action="{{ url('postDel/'.$post->post_id) }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
 

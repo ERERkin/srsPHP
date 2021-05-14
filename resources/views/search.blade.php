@@ -61,6 +61,11 @@
                         <tr class="tr1">
                             <!-- Имя задачи -->
                             <td class="td1">
+                                <input type="text" name="id" id="task-name" class="form-control" value="{{ $user->id }}"
+                               readonly>
+                           </td>
+
+                            <td class="td1">
                                 <img class="ava" src="{{ asset('/storage/' . $profile->profile_link) }}">
                             </td>
 
@@ -71,12 +76,7 @@
                             <td class="td1">
                                 <div class="br1"></div>
                             </td>
-
-                            <td class="td1">
-                                <input type="text" name="id" id="task-name" class="form-control" value="{{ $user->id }}"
-                               readonly>
-                           </td>
-
+                            
                             <td class="td1">
                                 <a class="bview1" href="{{ url('subProfile/' . $user->id) }}">⠀Просмотр⠀</a>
                                 <!-- <button class="bview1">Просмотр</button> -->

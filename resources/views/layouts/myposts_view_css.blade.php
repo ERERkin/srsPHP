@@ -60,6 +60,13 @@
 	padding: 15px 35px;
 }
 
+.tdtext1{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 550px;
+}
+
 .users2{
 	width: 1200px;
 	border-collapse: collapse;

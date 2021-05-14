@@ -2,9 +2,12 @@
 
 @extends('layouts.app')
 
-@extends('layouts.view_profile_css')
+@extends('layouts.lenta_css')
 
 @section('content')
+
+
+<body id="body1">
 
     <!-- TODO: Текущие задачи -->
     <!-- Текущие задачи -->
@@ -22,7 +25,9 @@
 
                     <!-- Заголовок таблицы -->
                     <thead>
+                    <th class="th1">Ава</th>
                     <th class="th1">Тема</th>
+                    <th class="th1">Время</th>
                     <th class="th1">Текст</th>
                     <th class="th1"></th>
                     </thead>
@@ -32,6 +37,10 @@
                     @foreach ($posts as $post)
                         <tr class="tr1">
                             <!-- Имя задачи -->
+                            <td class="td1">
+                                <div></div>
+                            </td>
+                            
                             <td class="td1">
                                 <div>{{ $post->post_name }}</div>
                             </td>
@@ -51,5 +60,5 @@
             </div>
         </div>
     @endif
-    </body>
+</body>
 @endsection

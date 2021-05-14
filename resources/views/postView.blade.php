@@ -24,6 +24,9 @@
 <!-- </div> -->
 
     <br>
+    <button> <img src="{{ asset('/storage/whitelike.png') }}"> Нравится </button>
+
+    <br>
     <br>
     <h1>Комментарии</h1>
     <br>
@@ -33,23 +36,22 @@
     @if (count($comments) > 0)
         <!--<div class="panel panel-default">-->
         @foreach ($comments as $comment)
-            <div>
-{{--                <img class="ava" src="{{ asset('/storage/' . $me->profile_link) }}">--}}
-                <h4>{{ $comment->name }}</h4>
-                <h3>
-                    {{ $comment->comment_text }}
-                </h3>
+            <div class="com1">
+                <img class="ava" src="{{ asset('/storage/' . $comment->profile_link) }}">
+                <h3 class="nick">{{ $comment->name }}</h3>
+                <h5 class="comdate">{{ $comment->created_at }}</h5>
+                <h4 class="comtext">{{ $comment->comment_text }}</h4>
                 <form action="{{ url('comment/'.$comment->comment_id) }}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
 
-                    <button type="submit" class="btn btn-danger">
-                        <i class="fa fa-trash"></i> Удалить
-                    </button>
+                    <button type="submit" class="b1">Удалить</button>
                 </form>
+                <br>
             </div>
         @endforeach
     @endif
+    <br>
     <form action="{{ url('comment/'. $post->post_id) }}" method="POST" class="form-horizontal">
     {{ csrf_field() }}
 

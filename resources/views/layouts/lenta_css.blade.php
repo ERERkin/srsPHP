@@ -44,64 +44,10 @@
 	display: inline-block;
 }
 
-.nav1{
-	width: 1200px;
-	margin: 0 auto;
-}
-.nav1:before{
-	content: '';
-	display: block;
-	height: 50px;
-	width: 100%;
-	position: absolute;
-	left: 0;
-	z-index: -1;
-}
-
-.ul1{
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	height: 50px;
-}
-
-.li1{
-	border-top: 1px solid #DDDDDD;
-	border-bottom: 1px solid #DDDDDD;
-	float: left;
-	width: 400px;
-}
-
-.a1{
-	display: block;
-	height: 50px;
-	padding: 0 174px;
-	text-decoration: none;
-	text-transform: uppercase;
-	font-family: sans-serif;
-	font-weight: lighter;
-	color: #000000;
-	line-height: 50px;
-}
-
-.a1:hover{
-	text-decoration: none;
-	color: #000744;
-	background-color: #DDDDDD;
-	transition: .5s;
-}
-
-.newp{
-	margin: 0;
-	float: right;
-	display: inline-block;
-}
-
 
 .b1{
 	color: #000000;
 	text-align: center;
-	padding: 5px;
 	width: 140px;
 	height: 40px;
 	font-size: 16px;
@@ -116,7 +62,6 @@
 }
 .b1:hover{
 	text-decoration: none;
-	color: #000000;
 	background-color: #E6EEED;
 	border: rgb(0,0,0) 2px solid;
 	display: inline-block;
@@ -156,6 +101,7 @@
 }
 
 .tr1{
+	border-top: 1px solid #8C8C8C;
 	transition: .5s;
 }
 
@@ -166,19 +112,11 @@
 
 .th1{
 	border-top: 1px solid #8C8C8C;
-	border-bottom: 1px solid #8C8C8C;
 	padding: 10px 35px; 
 }
 
 .td1{
 	padding: 15px 35px;
-}
-
-.tdtext1{
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	max-width: 700px;
 }
 
 .userposts{

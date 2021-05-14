@@ -23,6 +23,7 @@
 
 .tr1{
 	border-top: 1px solid #8C8C8C;
+	border-bottom: 1px solid #8C8C8C;
 	transition: .5s;
 }
 
@@ -45,12 +46,16 @@
 }
 
 .ava{
-	width: 30px;
-	height: 30px;
+	width: 75px;
+	height: 75px;
 	border-radius: 50%;
 }
 
 .bsub1{
+	width: 100px;
+	height: 40px;
+	text-align: center;
+	padding: 6px 5px 5px 1px;
 	background-color: #8a0dff;
 	color: #FFFFFF;
 	border-radius: 10px;
@@ -63,15 +68,23 @@
 }
 
 .bunsub1{
+	width: 100px;
+	height: 40px;
 	background-color: #C51200;
 	color: #FFFFFF;
 	border-radius: 10px;
 	border: rgb(61,64,69) 1px solid;
+	/*margin-top: 20px;*/
 }
 .bunsub1:hover{
 	background-color: #830c00;
 	color: #FFF;
 	text-decoration: none;
+	cursor: pointer;
+}
+
+.form1{
+	margin-top: 15px;
 }
 
 .br1{

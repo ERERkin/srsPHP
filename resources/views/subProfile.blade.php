@@ -54,9 +54,9 @@
                             </td>
 
                             <td class="td1">
-                                <div>{{ $post->post_text }}</div>
+                                <div class="tdtext1">{{ $post->post_text }}</div>
                             </td>
-    `                       <td><a href="{{ url('postView/' . $post->post_id) }}">Читать дальше</a></td>
+                           <td><a href="{{ url('postView/' . $post->post_id) }}">Читать дальше</a></td>
                         </tr>
 
                     @endforeach

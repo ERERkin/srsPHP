@@ -291,6 +291,16 @@ Route::get('/list', function () {
     return view('lenta', ['posts' => $posts, 'me' => $me]);
 });
 
+Route::get('/like/{post}', function (Post $post) {
+
+    $num = $post->post_likes_count;
+    $post->post_likes_count = $num + 1;
+
+    $post->save();
+
+    return redirect('/postView/' . $post->post_id);
+});
+
 
 // Auth::routes();
 Route::post('/image/upload', 'ImgController@upload')->name('image.upload');

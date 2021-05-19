@@ -92,6 +92,10 @@ Route::post('/post', function (Request $request) {
     $comList = new ComList;
     $comList->save();
 
+    $subs = User::select('*')
+        ->Join('subscribers', 'subscribers.sub_subscriber_id', '=', 'users.id')
+        ->where('subscribers.sub_author_id', Auth::user()->id)
+        ->get();
 
     $post = new Post;
     $post->post_name = $request->name;
@@ -104,6 +108,18 @@ Route::post('/post', function (Request $request) {
     $profile->profile_post_count = $profile->profile_post_count + 1;
 
     $profile->save();
+
+    foreach ($subs as $sub) {
+        $userName = $sub->name;
+        $email = $sub->email;
+//    $email = 'erkin1399@gmail.com';
+        $msg = 'Пользователь '.Auth::user()->name
+            .' выпустил новый пост: '. $post->post_name;
+
+        Mail::to($email)->send(new \App\Mail\MailClass($userName, $msg));
+    }
+
+
 
     return redirect('/my');
 });

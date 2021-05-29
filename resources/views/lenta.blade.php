@@ -25,7 +25,7 @@
 
                     <!-- Заголовок таблицы -->
                     <thead>
-                    <th class="th1">Ава</th>
+                    <!-- <th class="th1">Ава</th> -->
                     <th class="th1">Тема</th>
                     <th class="th1">Время</th>
                     <th class="th1">Текст</th>
@@ -37,9 +37,9 @@
                     @foreach ($posts as $post)
                         <tr class="tr1">
                             <!-- Имя задачи -->
-                            <td class="td1">
+                            <!-- <td class="td1">
                                 <div></div>
-                            </td>
+                            </td> -->
                             
                             <td class="td1">
                                 <div>{{ $post->post_name }}</div>

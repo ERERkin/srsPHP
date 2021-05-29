@@ -87,10 +87,10 @@
                                 <button type="submit" class="bsub1">Подписаться</button>
                             </td>
 
-                            <td class="td1">
-                                <a class="bunsub1" href="{{ url('userProfile/' . $user->id) }}">⠀Отписаться⠀</a>
+                            <!-- <td class="td1">
+                                <a class="bunsub1" href="{{ url('userProfile/' . $user->id) }}">⠀Отписаться⠀</a> -->
                                 <!-- <button class="bunsub1">Отписаться</button> -->
-                            </td>
+                            <!-- </td> -->
 
                         </tr>
 

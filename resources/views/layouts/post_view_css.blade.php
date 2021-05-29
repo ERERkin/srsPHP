@@ -15,6 +15,23 @@
     margin: 0 auto;
 }
 
+.like1{
+    width: 200px;
+    height: 50px;
+    background-color: #FADA70;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 10px;
+}
+.like1:hover{
+    background-color: #FAB570;
+    color: #000000;
+    text-decoration: none;
+}
+
 .com1{
     background-color: #FFFFFF;
     position: relative;

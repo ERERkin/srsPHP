@@ -24,9 +24,10 @@
 <!-- </div> -->
 
     <br>
-    <p>{{ $post->post_likes_count }}</p>
-    <a href="{{ url('like/' . $post->post_id) }}" class="list-group-item list-group-item-action text-center"><img src="{{ asset('/storage/whitelike.png') }}"> Нравится</a>
+    {{ $post->post_likes_count }}
+    <a href="{{ url('like/' . $post->post_id) }}" type="button" class="like1"><img src="{{ asset('/storage/whitelike.png') }}">⠀⠀⠀Нравится</a>
 
+    <br>
     <br>
     <br>
     <h1>Комментарии</h1>

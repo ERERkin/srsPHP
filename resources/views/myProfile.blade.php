@@ -45,7 +45,7 @@
             </div>
 
             <div class="newp">
-                <a class="a1" href="{{ url('my') }}">Новый пост</a>
+                <a class="a1" href="{{ url('my') }}">+ Новый пост</a>
             </div>
 
             <!-- <div class="panel-body"> -->
